@@ -44,3 +44,18 @@ function calculateTax(income: number, taxYear = 2022): number {
 
 calculateTax(10_000, 2022);
 calculateTax(10_000);
+
+// Objects
+let employee: {
+    readonly id: number,
+    name: string,
+    retire: (date: Date) => void
+} = {
+    id: 1,
+    name: 'Javy',
+    retire: (date: Date) => {
+        console.log('Retiring on ' + date);
+    }
+};
+
+// employee.id = 2; // Cannot assign to 'id' because it is a read-only property
