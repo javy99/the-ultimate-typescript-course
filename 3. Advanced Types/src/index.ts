@@ -68,3 +68,23 @@ function greet(name: string | null | undefined) {
 
 // greet(null); // Error: Argument of type 'null' is not assignable to parameter of type 'string'.
 greet('Javy');
+
+// Optional Chaining
+type Customer = {
+    birthday?: Date
+}
+
+function getCustomer(id: number): Customer | null | undefined {
+    return id === 0 ? null : { birthday: new Date() };
+}
+
+let customer = getCustomer(0);
+// ? - Optional property access operator (Optional Chaining) - If the property is null or undefined, it will return undefined.
+console.log(customer?.birthday?.getFullYear());
+
+// ? - Optional element access operator
+// customer[0]?.birthday?.getFullYear();
+
+// ? - Optional call operator
+let log: any = null;
+log?.('Hello'); 
