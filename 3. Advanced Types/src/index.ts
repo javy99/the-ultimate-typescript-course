@@ -57,3 +57,14 @@ type Quantity = 50 | 100; // Literal Type is a subset of Union Type (50 | 100)
 let quantity: Quantity = 100;
 
 type Metric = 'cm' | 'm' | 'km';
+
+// Nullable Types
+function greet(name: string | null | undefined) {
+    if (name)
+        console.log(name.toUpperCase());
+    else
+        console.log('Hola!');
+}
+
+// greet(null); // Error: Argument of type 'null' is not assignable to parameter of type 'string'.
+greet('Javy');
