@@ -87,4 +87,10 @@ console.log(customer?.birthday?.getFullYear());
 
 // ? - Optional call operator
 let log: any = null;
-log?.('Hello'); 
+log?.('Hello');
+
+// The Nullish Coalescing Operator
+let speed: number | null = null;
+let ride = {
+    speed: speed ?? 50 // ?? - here means if speed is null or undefined, use 50. ?? is the nullish coalescing operator.
+}
