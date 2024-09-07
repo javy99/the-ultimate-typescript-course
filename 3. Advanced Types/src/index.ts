@@ -94,3 +94,10 @@ let speed: number | null = null;
 let ride = {
     speed: speed ?? 50 // ?? - here means if speed is null or undefined, use 50. ?? is the nullish coalescing operator.
 }
+
+// Type Assertions
+let phone1 = document.getElementById('phone') as HTMLInputElement;
+let phone2 = <HTMLInputElement>document.getElementById('phone');
+// HTMLElement is the base type of all HTML elements. We can use type assertion to cast it to a more specific type.
+// HTMLInputElement is a more specific type of HTMLElement.
+
