@@ -47,3 +47,13 @@ let textBox: UIWidget = {
     }
 };
 // console.log(textBox);
+
+// Literal Types
+// Literal (exact, specific)
+
+// let quantity: 50 | 100 = 100;
+
+type Quantity = 50 | 100; // Literal Type is a subset of Union Type (50 | 100)
+let quantity: Quantity = 100;
+
+type Metric = 'cm' | 'm' | 'km';
