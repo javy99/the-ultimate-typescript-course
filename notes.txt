@@ -1,3 +1,17 @@
 Here I will write notes about TypeScript.
 
 tsc --init - we can run this command to initialize TypeScript configuration file - tsconfig.json
+
+TypeScript Built-in Types:
+1. number
+2. string
+3. boolean
+4. null
+5. undefined
+6. object
+
+7. any
+8. unknown
+9. never
+10. enum
+11. tuple
