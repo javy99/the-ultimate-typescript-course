@@ -14,4 +14,9 @@ let numbers2 = [];
 let user = [1, 'Javy'];
 user[0].toFixed();
 user.push(2);
+const small = 1;
+const medium = 2;
+const large = 3;
+let mySize = 2;
+console.log(mySize);
 //# sourceMappingURL=index.js.map

@@ -20,3 +20,16 @@ let numbers2: number[] = [];
 let user: [number, string] = [1, 'Javy'];
 user[0].toFixed();
 user.push(2); // this is allowed, but it's not a good practice to use tuples! It's bug in TypeScript
+
+// Enums
+const small = 1;
+const medium = 2;
+const large = 3;
+
+const enum Size { // if we add const keyword, it will be removed from the compiled code and it will be replaced by the value of the enum. This is to generate more optimized code
+    Small = 1, // 's'
+    Medium = 2, // 'm'
+    Large = 3 // 'l'
+}
+let mySize: Size = Size.Medium
+console.log(mySize);
