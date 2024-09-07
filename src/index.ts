@@ -16,3 +16,7 @@ numbers1[1] = '2';
 
 let numbers2: number[] = [];
 
+// Tuples
+let user: [number, string] = [1, 'Javy'];
+user[0].toFixed();
+user.push(2); // this is allowed, but it's not a good practice to use tuples! It's bug in TypeScript
