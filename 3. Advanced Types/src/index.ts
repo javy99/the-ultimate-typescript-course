@@ -24,3 +24,26 @@ function kgToLbs(weight: number | string): number {
 
 kgToLbs(150);
 kgToLbs('150');
+
+// Intersection Types
+let weight: number & string; // Error: Type 'number' is not assignable to type 'string'.
+
+type Draggable = {
+    drag: () => void
+}
+
+type Resizable = {
+    resize: () => void
+}
+
+type UIWidget = Draggable & Resizable;
+
+let textBox: UIWidget = {
+    drag: () => {
+        console.log('Dragging');
+    },
+    resize: () => {
+        console.log('Resizing');
+    }
+};
+// console.log(textBox);
