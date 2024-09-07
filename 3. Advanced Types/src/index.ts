@@ -101,3 +101,17 @@ let phone2 = <HTMLInputElement>document.getElementById('phone');
 // HTMLElement is the base type of all HTML elements. We can use type assertion to cast it to a more specific type.
 // HTMLInputElement is a more specific type of HTMLElement.
 
+// The unknown Type
+function render(document: unknown) {
+    // Narrowing
+    if (typeof document === 'string') {
+        document.toUpperCase();
+    }
+    if (document instanceof HTMLElement) {
+        document.innerText = 'Hello';
+    }
+
+    // document.move();
+    // document.fly();
+    // document.whateverWeWant();
+}
