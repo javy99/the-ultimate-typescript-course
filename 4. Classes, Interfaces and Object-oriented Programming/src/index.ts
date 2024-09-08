@@ -228,3 +228,27 @@ printNames([
 
 // Open Closed Principle
 // Classes should be open for extension but closed for modification.
+
+// Private vs Protected Members
+class Person1 {
+    constructor(public firstName: string, public lastName: string) { }
+
+    get fullName() {
+        return this.firstName + ' ' + this.lastName;
+    }
+
+    protected walk() {
+        console.log('Walking...');
+    }
+}
+
+class Student1 extends Person1 {
+    constructor(public studentId: number, firstName: string, lastName: string) {
+        super(firstName, lastName);
+    }
+
+    takeTest() {
+        this.walk();
+        console.log('Taking a test...');
+    }
+}
