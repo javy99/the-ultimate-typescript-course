@@ -269,3 +269,34 @@ class Circle extends Shape {
         console.log(`Drawing a circle with radius ${this.radius} and color ${this.color}`);
     }
 }
+
+// Interfaces
+// Classes - Blueprint for creating objects
+// Interfaces - To define the shape of objects
+// abstract class Calendar {
+//     constructor(public name: string) { }
+
+//     abstract addEvent(): void
+//     abstract removeEvent(): void
+// }
+
+interface Calendar {
+    name: string;
+    addEvent(): void;
+    removeEvent(): void;
+}
+
+interface CloudCalendar extends Calendar {
+    sync(): void;
+}
+
+class GoogleCalendar implements Calendar {
+    constructor(public name: string) { }
+
+    addEvent(): void {
+        throw new Error("Method not implemented.");
+    }
+    removeEvent(): void {
+        throw new Error("Method not implemented.");
+    }
+}
