@@ -17,3 +17,11 @@ class Account {
         this.balance += amount;
     }
 }
+
+// Creating Objects
+let account = new Account(1, 'Javy', 1000);
+account.deposit(100);
+console.log(account.balance); // 1100
+console.log(account); // Account { id: 1, owner: 'Javy', balance: 1100 }
+console.log(typeof account); // object
+console.log(account instanceof Account); // true
