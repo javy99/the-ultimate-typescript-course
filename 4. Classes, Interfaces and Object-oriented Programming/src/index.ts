@@ -134,3 +134,15 @@ class Account4 {
 
 let account4 = new Account4(1, 'Javy', 1000);
 console.log(account4.balance); // 1000
+
+// Index Signatures
+class SeatAssignment {
+    // A1, A2, A3, B1, B2, B3, etc.
+    // Javy, Mosh, etc.
+    // Index signature property
+    [seatNumber: string]: string;
+}
+
+let seats = new SeatAssignment();
+seats['A1'] = 'Javy';
+seats['A2'] = 'Mosh';
