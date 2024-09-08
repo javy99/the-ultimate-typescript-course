@@ -65,8 +65,8 @@ class Account2 {
         this._balance += amount;
     }
 
-    private calculateTax() {
-    }
+    // private calculateTax() {
+    // }
 
     getBalance(): number {
         return this._balance;
@@ -75,3 +75,28 @@ class Account2 {
 
 let account2 = new Account2(1, 'Javy', 1000);
 console.log(account2.getBalance());
+
+// Parameter Properties
+class Account3 {
+    nickname?: string;
+
+    constructor(
+        public readonly id: number,
+        public owner: string,
+        private _balance: number
+    ) {
+        this.id = id;
+        this.owner = owner
+        this._balance = _balance;
+    }
+
+    deposit(amount: number): void {
+        if (amount <= 0)
+            throw new Error('Invalid amount');
+        this._balance += amount;
+    }
+
+    getBalance(): number {
+        return this._balance;
+    }
+}
