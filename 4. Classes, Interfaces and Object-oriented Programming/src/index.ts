@@ -252,3 +252,20 @@ class Student1 extends Person1 {
         console.log('Taking a test...');
     }
 }
+
+// Abstract Classes and Methods
+abstract class Shape {
+    constructor(public color: string) { }
+
+    abstract render(): void;
+}
+
+class Circle extends Shape {
+    constructor(public radius: number, color: string) {
+        super(color);
+    }
+
+    override render() {
+        console.log(`Drawing a circle with radius ${this.radius} and color ${this.color}`);
+    }
+}
