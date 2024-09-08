@@ -102,7 +102,7 @@ let phone2 = <HTMLInputElement>document.getElementById('phone');
 // HTMLInputElement is a more specific type of HTMLElement.
 
 // The unknown Type
-function render(document: unknown) {
+function render1(document: unknown) {
     // Narrowing
     if (typeof document === 'string') {
         document.toUpperCase();
