@@ -194,3 +194,13 @@ class Student extends Person {
 }
 
 const student = new Student(1, 'Javy', 'Kosimov');
+
+// Method Overriding
+class Teacher extends Person {
+    override get fullName() {
+        return 'Professor ' + super.fullName;
+    }
+}
+
+let teacher = new Teacher('Mosh', 'Hamedani');
+console.log(teacher.fullName);
