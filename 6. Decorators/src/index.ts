@@ -38,3 +38,14 @@ function Component1(options: ComponentOptions) {
 
 @Component1({ selector: '#my-profile' })
 class ProfileComponent1 { }
+
+// Decorator Composition
+function Pipe(constructor: Function) {
+    console.log('Pipe decorator called');
+    constructor.prototype.pipe = true;
+}
+
+@Component1({ selector: '#my-profile' })
+@Pipe
+// f(g(x)) - Pipe -> Component
+class ProfileComponent2 { }
