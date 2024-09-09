@@ -199,3 +199,47 @@ store1.add({ name: 'Apple', price: 10 });
 store1.find('name', 'Apple');
 store1.find('price', 10);
 // store1.find('nonExistingProperty', 'value'); // Argument of type '"nonExistingProperty"' is not assignable to parameter of type '"name" | "price"'.
+
+// The keyof operator returns the keys of a type as a union of string literal types. It is used to restrict the property name to the keys of the type.
+
+// Type Mapping
+// Type mapping is a way to transform one type into another type.
+interface Product2 {
+    name: string;
+    price: number;
+}
+
+type ReadOnlyProduct = {
+    // Index signature
+    // keyof
+    readonly [K in keyof Product2]: Product2[K]; // what it does? It creates a new type by iterating over the keys of Product2 and creating a new property with the same name and type.
+}
+
+let product: ReadOnlyProduct = {
+    name: 'Apple',
+    price: 10
+};
+
+type ReadOnly<T> = {
+    readonly [K in keyof T]: T[K];
+}
+
+let product1: ReadOnly<Product2> = {
+    name: 'Apple',
+    price: 10
+};
+
+let product2: ReadOnly<{ name: string, price: number }> = {
+    name: 'Apple',
+    price: 10
+};
+
+type Optional<T> = {
+    [K in keyof T]?: T[K];
+}
+
+type Nullable<T> = {
+    [K in keyof T]: T[K] | null;
+}
+
+// https://www.typescriptlang.org/docs/handbook/utility-types.html
