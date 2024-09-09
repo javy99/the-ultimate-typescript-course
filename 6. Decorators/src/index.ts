@@ -92,3 +92,34 @@ class Person6 {
 
 let person6 = new Person6('John', 'Doe');
 console.log(person6.fullName);
+
+// Property Decorators
+function MinLength(length: number) {
+    return (target: any, propertyName: string) => {
+        let value: string;
+
+        const descriptor: PropertyDescriptor = {
+            get() { return value },
+            set(newValue: string) {
+                if (newValue.length < length)
+                    throw new Error(`${propertyName} should be at least ${length} characters long`);
+                value = newValue;
+            }
+        };
+
+        Object.defineProperty(target, propertyName, descriptor);
+    }
+}
+
+class User5 {
+    @MinLength(4)
+    password: string;
+
+    constructor(password: string) {
+        this.password = password;
+    }
+}
+
+let user5 = new User5('1234');
+// user5.password = '123';
+console.log(user5.password);
