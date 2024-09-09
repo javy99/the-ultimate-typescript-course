@@ -38,7 +38,7 @@ function wrapInArray1<T>(value: T) {
     return [value];
 }
 
-let numbers = wrapInArray1<number>(1);
+let nums = wrapInArray1<number>(1);
 let strings = wrapInArray1<string>('1');
 let booleans = wrapInArray1<boolean>(true);
 
@@ -72,6 +72,7 @@ interface Result<T> {
 }
 
 function fetch<T>(url: string): Result<T> {
+    console.log(url);
     return { data: null, error: null }
 }
 
@@ -106,29 +107,29 @@ function echo2<T extends { name: string }>(value: T): T {
 echo2({ name: 'Alex' });
 // echo2({ age: 20 }); // Object literal may only specify known properties, and 'age' does not exist in type '{ name: string; }'.
 
-interface Person {
+interface Person11 {
     name: string,
 }
 
-function echo3<T extends Person>(value: T): T {
+function echo3<T extends Person11>(value: T): T {
     return value;
 }
 echo3({ name: 'Alex' });
 
-class Person {
+class Person2 {
     constructor(public name: string) { }
 }
-class Customer extends Person {
+class Customer1 extends Person2 {
     constructor(name: string, public age: number) {
         super(name);
     }
 }
 
-function echo4<T extends Person>(value: T): T {
+function echo4<T extends Person2>(value: T): T {
     return value;
 }
-echo4(new Person('Alex'));
-echo4(new Customer('Alex', 20));
+echo4(new Person2('Alex'));
+echo4(new Customer1('Alex', 20));
 
 // Extending Generic Classes
 interface Product {
@@ -164,6 +165,7 @@ class SearchableStore<T extends { name: string }> extends Store<T> {
 // Fix the generic type parameter to a specific type, so that it cannot be changed
 class ProductStore extends Store<Product> {
     filterByCategory(category: string): Product[] {
+        console.log(category)
         return [];
     }
 }
@@ -172,3 +174,28 @@ class ProductStore extends Store<Product> {
 // 1. Fix the generic type parameter.
 // 2. Restrict the generic type parameter to a specific type.
 // 3. Pass on the generic type parameter to the base class.
+
+// The keyof Operator
+interface Product1 {
+    name: string;
+    price: number;
+}
+
+class Store1<T> {
+    protected _objects: T[] = [];
+
+    add(obj: T): void {
+        this._objects.push(obj);
+    }
+
+    // T is Product
+    // keyof T is 'name' | 'price'
+    find(property: keyof T, value: unknown): T | undefined {
+        return this._objects.find(obj => obj[property] === value);
+    }
+}
+let store1 = new Store1<Product1>();
+store1.add({ name: 'Apple', price: 10 });
+store1.find('name', 'Apple');
+store1.find('price', 10);
+// store1.find('nonExistingProperty', 'value'); // Argument of type '"nonExistingProperty"' is not assignable to parameter of type '"name" | "price"'.
