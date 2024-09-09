@@ -129,3 +129,46 @@ function echo4<T extends Person>(value: T): T {
 }
 echo4(new Person('Alex'));
 echo4(new Customer('Alex', 20));
+
+// Extending Generic Classes
+interface Product {
+    name: string;
+    price: number;
+}
+
+class Store<T> {
+    protected _objects: T[] = [];
+
+    add(obj: T): void {
+        this._objects.push(obj);
+    }
+}
+
+// Pass on the generic type parameter to the base class
+class CompressibleStore<T> extends Store<T> {
+    compress(): void {
+        // Compress the store objects
+    }
+}
+
+let store = new CompressibleStore<Product>();
+store.compress();
+
+// Restrict the generic type parameter to a specific type
+class SearchableStore<T extends { name: string }> extends Store<T> {
+    find(name: string): T | undefined {
+        return this._objects.find(obj => obj.name === name);
+    }
+}
+
+// Fix the generic type parameter to a specific type, so that it cannot be changed
+class ProductStore extends Store<Product> {
+    filterByCategory(category: string): Product[] {
+        return [];
+    }
+}
+
+// When extending Generic Class we have 3 options:
+// 1. Fix the generic type parameter.
+// 2. Restrict the generic type parameter to a specific type.
+// 3. Pass on the generic type parameter to the base class.
