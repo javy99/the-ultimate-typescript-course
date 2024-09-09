@@ -61,3 +61,27 @@ class ArrayUtils1 {
 
 let wrappedNumbers1 = ArrayUtils1.wrapInArray<number>(1);
 let wrappedStrings1 = ArrayUtils1.wrapInArray<string>('1');
+
+// Generic Interfaces
+// https://mywebsite.com/users
+// https://mywebsite.com/products
+
+interface Result<T> {
+    data: T | null,
+    error: string | null
+}
+
+function fetch<T>(url: string): Result<T> {
+    return { data: null, error: null }
+}
+
+interface User {
+    username: string,
+}
+
+interface Product {
+    title: string,
+}
+
+let result = fetch<User>('https://mywebsite.com/users');
+let result1 = fetch<Product>('https://mywebsite.com/products');
