@@ -85,3 +85,47 @@ interface Product {
 
 let result = fetch<User>('https://mywebsite.com/users');
 let result1 = fetch<Product>('https://mywebsite.com/products');
+
+// Generic Constraints
+// We can restrict/constrain the type of T using constraints.
+function echo<T>(value: T): T {
+    return value;
+}
+echo<number>(1);
+
+function echo1<T extends number | string>(value: T): T {
+    return value;
+}
+echo1<number>(1);
+echo1<string>('1');
+// echo1<boolean>(true); // Type 'boolean' does not satisfy the constraint 'number | string'.
+
+function echo2<T extends { name: string }>(value: T): T {
+    return value;
+}
+echo2({ name: 'Alex' });
+// echo2({ age: 20 }); // Object literal may only specify known properties, and 'age' does not exist in type '{ name: string; }'.
+
+interface Person {
+    name: string,
+}
+
+function echo3<T extends Person>(value: T): T {
+    return value;
+}
+echo3({ name: 'Alex' });
+
+class Person {
+    constructor(public name: string) { }
+}
+class Customer extends Person {
+    constructor(name: string, public age: number) {
+        super(name);
+    }
+}
+
+function echo4<T extends Person>(value: T): T {
+    return value;
+}
+echo4(new Person('Alex'));
+echo4(new Customer('Alex', 20));
