@@ -25,5 +25,39 @@ let pair5 = new KeyValuePair2<string, number>('2', 2);
 let pair6 = new KeyValuePair2<boolean, string>(true, 'Cat');
 let pair7 = new KeyValuePair2('1', 'a'); // TypeScript can infer the type of key and value. So, we can skip the type parameters.
 
-// So, we can create an instance of KeyValuePair1 class with any type of key. 
+// So, we can create an instance of KeyValuePair1 class with any type of key.
 
+// Generic Functions
+function wrapInArray(value: number) {
+    return [value];
+}
+
+// let numbers = wrapInArray('1'); // Argument of type 'string' is not assignable to parameter of type 'number'.
+
+function wrapInArray1<T>(value: T) {
+    return [value];
+}
+
+let numbers = wrapInArray1<number>(1);
+let strings = wrapInArray1<string>('1');
+let booleans = wrapInArray1<boolean>(true);
+
+class ArrayUtils {
+    wrapInArray<T>(value: T) {
+        return [value];
+    }
+}
+
+let arrayUtils = new ArrayUtils();
+let wrappedNumbers = arrayUtils.wrapInArray<number>(1);
+let wrappedStrings = arrayUtils.wrapInArray<string>('1');
+let wrappedBooleans = arrayUtils.wrapInArray<boolean>(true);
+
+class ArrayUtils1 {
+    static wrapInArray<T>(value: T) {
+        return [value];
+    }
+}
+
+let wrappedNumbers1 = ArrayUtils1.wrapInArray<number>(1);
+let wrappedStrings1 = ArrayUtils1.wrapInArray<string>('1');
