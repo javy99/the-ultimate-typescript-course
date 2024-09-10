@@ -1,3 +1,5 @@
+// import { Square5 } from "./shapes/Square5"
+// import { Circle5 } from "./shapes/Circle5"
 import { Circle5, Square5 } from "./shapes"
 import Store5, { Format } from "./storage"
 
@@ -24,3 +26,6 @@ console.log(Format.Raw)
 // Wildcard imports are used to import all the exports from a module. When importing all the exports from a module, you can give them any name you want.
 // import * as Shapes from "./shapes" - wildcard import
 // import * as Storage from "./storage" - wildcard import
+
+// Re-exporting
+// Re-exporting is used to export all the exports from one module in another module. When re-exporting, you can give the exports any name you want.
