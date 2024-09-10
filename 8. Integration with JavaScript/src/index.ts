@@ -1,4 +1,4 @@
-import { calculateTax } from './text';
+import { calculateTax } from "./tax";
 
 // Including JS Code in TS Projects
 const tax = calculateTax(100); // 30
@@ -12,3 +12,9 @@ console.log(tax);
 // Describing Types Using JSDoc
 const tax2 = calculateTax(10_000)
 console.log(tax2);
+
+// Creating Declaration Files
+// tax.js - js file
+// tax.d.ts - declaration file
+// Declaration files are used to describe the types of the JS code
+// Using declaration files, we can type information to the TypeScript compiler
