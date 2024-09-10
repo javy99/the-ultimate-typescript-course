@@ -5,3 +5,10 @@ const square5 = new Square5(10)
 
 console.log(circle5.radius)
 console.log(square5.width)
+
+// Module Formats
+// AMD, UMD, CommonJS, ES2015/ES6
+// AMD (Asynchronous Module Definition) is a module format that is used in web development. It is a way to define modules so that they can be imported into other modules using the require function.
+// UMD (Universal Module Definition) is a module format that is used in web development. It is a way to define modules so that they can be imported into other modules using the require function.
+// CommonJS is a module format that is used in Node.js. It is a way to define modules so that they can be imported into other modules using the require function.
+// ES2015/ES6 is a module format that is used in modern web development. It is a way to define modules so that they can be imported into other modules using the import and export keywords.
