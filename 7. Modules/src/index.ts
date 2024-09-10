@@ -19,3 +19,8 @@ console.log(square5.width)
 const store5 = new Store5()
 console.log(store5)
 console.log(Format.Raw)
+
+// Wildcard Imports
+// Wildcard imports are used to import all the exports from a module. When importing all the exports from a module, you can give them any name you want.
+// import * as Shapes from "./shapes" - wildcard import
+// import * as Storage from "./storage" - wildcard import
